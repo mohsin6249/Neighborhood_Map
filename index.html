@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Neighborhood Map</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div  class="mapStyle" id="map"></div>
+    <div id="city-info">
+        <h2>Cities of Maharshtra</h2>
+          <hr>
+          <input type="text" id="search-box" data-bind="textInput: locationfilter,valueUpdate: 'keypress', event: { keyup: function(){setallLoc()} }" placeholder="Enter the city" autocomplete="off" />
+            <div class="toggle-arrow" data-bind="click: Togglelist">
+              <img src="img/tgl.png" alt="Toggle icon">
+            </div>
+            <div id="list_view">
+              <ul class="citylist" data-bind="foreach: locations">
+                  <li class="citynames" data-bind="visible: visible,attr: {id: id}">
+                      <p class="city-data" data-bind="text:title, click: function () { $parent.showLocinfo(title); } "></p>
+                  </li>
+              </ul>
+          </div>
+      </div>
+
+<!-- Map error handling:gives error message if occurs-->
+ <div class="map-errors"></div>
+
+ <!-- Wikipedia error handling:gives error message if occurs-->
+ <div class="Wiki-errors"></div>
+
+    <script src="js/lib/jquery.min.js"></script>
+    <script src="js/lib/knockout-3.4.0.js"></script>
+    <script src="js/app1.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA4JChOPP4WzaSHpQTVc203kKQtLg3UFgY&v=3&callback=initMap">
+    </script>
+</body>
+
+</html>
