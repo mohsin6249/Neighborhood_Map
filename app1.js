@@ -240,7 +240,7 @@ function initMap() {
 
 /* Creating markers  for each location*/
     function displayLoc() {
-                var image = 'img/mark2.png';
+                var image = 'mark2.png';
                 for (var i = 0; i < locations.length; i++) {
                       // Get the position from the location array.
                       var position = locations[i].location;
